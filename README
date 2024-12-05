@@ -1,3 +1,55 @@
 >> This will require the Eigen include file to be linked <<
 
-Controllable by the parameters at the top of main.cpp.
+Controllable by the parameters at the top of main.cpp. 
+
+------------------------------------------------------------
+Parameters and their meaning:
+
+n = integer
+- Number of qubits
+
+System = "CTIM", "CQHO"
+- Which test system we want to use. Note that we are no longer looking at this CQHO. 
+- To change between Hermitian and non-Hermitian Ising model, you have to change "std::complex<double> ib(0, b)"  to "std::complex<double> ib(b, 0)" in grads.h -> Hamiltonian()
+
+Observ = "Rmin", "Imax", "Xmag", "Sus"
+- Which observable we are interested in measuring."Xmag" is x-direction magnetization and "Sus" is x-direction magnetic susceptibility.
+- "Rmin" and "Imax" look for the groundstate and spectralstate, respectively.
+
+exactOrQuantum = "Exact", "Quantum"
+- Whether to use Lanczos or the variational quantum method.
+
+noiseLevel = float
+- Level of random noise added to inner product calculations.
+- Sampled via a uniform distribution on (0,1), multiplied by this value.
+
+variableMin = float
+- Minimum value for Gamma.
+variableMax = float
+- Maximum value for Gamma.
+variablePoints = integer
+- How many increments of Gamma to test over.
+
+Constant = float
+- Bz, longitudinal field strength.
+
+firstStepIters = integer
+- Number of iterations to spend optimizing over parameters.
+secondStepIters = integer
+- Number of iterations to spend optimizing over parameters, E_R and E_I.
+
+TOTALRUNS = integer
+- How many full sweeps over Gamma to do.
+
+maxLength = integer
+- Number of samples considered for average-based stopping criteria.
+avTol = float 
+- Difference between average and current value for average-based stopping criteria.
+costTol = float 
+- Cost value that must be reached before starting the average-based stopping criteria
+
+stepSize = float
+- Step size sampled for finite difference gradient calculations.
+gamma = float
+- Weight for length of change of variable in decreasing gradient direction.
+------------------------------------------------------------
