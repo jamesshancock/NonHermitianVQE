@@ -1,0 +1,3 @@
+>> This will require the Eigen include file to be linked <<
+
+Controllable by the parameters at the top of main.cpp.
