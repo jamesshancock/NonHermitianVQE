@@ -49,18 +49,12 @@ const int maxLength = n; // Number of samples considered (For average-based stop
 const float avTol = 0.1; // Difference between average and current value (For average-based stopping criteria)
 float costTol = 0.1; // Cost value that must be reached before starting the average-based stopping criteria
 
-// == Modules ==
-#include "kroneckers.h"
-
 // == Gradient descent parameters ==
 const float stepSize = 0.1;
 const float gamma = 0.1; 
 
-// == Adam parameters ==
-constexpr float alpha = 0.01; // Learning rate
-constexpr float beta1 = 0.9;
-constexpr float beta2 = 0.999;
-constexpr float epsilon = 1e-8;
+// == Modules ==
+#include "kroneckers.h"
 
 sysVECTOR VectorGrad(const sysMATRIX& Matrix, sysVECTOR& Vector, float stepSize) {
     /*
